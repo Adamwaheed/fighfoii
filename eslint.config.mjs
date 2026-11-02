@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendored assets, not our source: the pdf.js worker is a 1.2MB minified
+    // bundle copied in by postinstall.
+    "public/**",
   ]),
 ]);
 

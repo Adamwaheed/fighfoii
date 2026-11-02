@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# SQLite content database (created on first run, seeded automatically)
+/data
+
+# Uploaded media
+/public/uploads
+
+# pdf.js worker, copied from node_modules by postinstall
+/public/pdf.worker.min.mjs
+/public/pdfjs
