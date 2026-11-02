@@ -167,3 +167,4 @@ lib/
   types.ts         content model          utils-format.ts  Dhivehi dates/slugs
 public/fonts/      the four self-hosted faces
 ```
+# fighfoii
