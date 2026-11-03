@@ -167,7 +167,19 @@ lib/
   types.ts         content model          utils-format.ts  Dhivehi dates/slugs
 public/fonts/      the four self-hosted faces
 ```
-# fighfoii
-# fighfoii
-# fighfoii
-# fighfoii
+
+## Deployment
+
+The live site is **https://fiqhfoiy.com**, deployed with `./deploy.sh`:
+
+1. Builds locally (Next.js standalone output), so the server never runs a build.
+2. Refuses to continue if a `data/` folder ended up inside the build, so the
+   live database can never be overwritten by a deploy.
+3. Rsyncs the app to the server, leaving `public/uploads/` (user content) alone.
+4. Seeds the database only on the very first deploy, using SQLite's backup API
+   so writes still sitting in the WAL file are not lost.
+5. Installs linux-x64 native modules, restarts the app under **pm2**, and
+   serves it behind **Caddy**, then runs a health check.
+
+The production database lives outside the app directory on the server, so
+redeploys never touch it.
